@@ -1,0 +1,10 @@
+Sub replaceBlank()
+Dim range As Range
+Selection.Value = Selection.Value
+For Each range In Selection
+If range = "" Or range = " " Then
+range.Value = "0"
+Else
+End If
+Next range
+End Sub
