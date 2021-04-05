@@ -1,29 +1,27 @@
 Sub DeleteSpaces()
 
     'Declare variables
-        Dim MyRange As Range
-        Dim MyCell As Range
+        Dim SelectedRange As Range
+        Dim SelectedCell As Range
         
     'Save Workbook before changing cells
-        Select Case MsgBox("Can't Undo this action.  " & _
-                            "Save Workbook First?", vbYesNoCancel)
+        Select Case MsgBox("Can't undo this action.  " & _
+                            "Save Workbook?", vbYesNoCancel)
             Case Is = vbYes
             ThisWorkbook.Save
             Case Is = vbCancel
             Exit Sub
         End Select
         
-    'Define target Range
-        Set MyRange = Selection
-        
-    'Loop through range
-        For Each MyCell In MyRange
+    'Choose target Range and loop through selected range
+        Set SelectedRange = Selection
+        For Each SelectedCell In MyRange
         
     'Delete Spaces
-            If Not IsEmpty(MyCell) Then
-                MyCell = Trim(MyCell)
+            If Not IsEmpty(SelectedCell) Then
+                SelectedCell = Trim(SelectedCell)
             End If
             
     'Move to the next cell in the range
-        Next MyCell
+        Next SelectedCell
 End Sub
